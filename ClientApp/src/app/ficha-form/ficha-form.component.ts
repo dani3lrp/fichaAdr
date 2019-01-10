@@ -7,19 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ficha-form.component.css']
 })
 export class FichaFormComponent implements OnInit {
-  fichas;
+  fichas: any;
+  tipos: any[];
+  adr: any= {};
 
   constructor(private fichaService: FichaService) { }
 
   ngOnInit() {
     this.fichaService.getFichas().subscribe(fichas => {
-      this.fichas = fichas
-      console.log('FICHAS ', this.fichas)
-
+      this.fichas = fichas;
       });
-    
-    
-
   }
 
+  onFichaChange(){
+    let selectedFicha = this.fichas.find(f => f.id == this.adr.ficha);
+    this.tipos = selectedFicha ? selectedFicha.tipos: [];
+  }
 }

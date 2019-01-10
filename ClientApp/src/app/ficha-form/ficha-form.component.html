@@ -2,10 +2,16 @@
 <form>
   <div class="form-group">
     <label for="ficha">Ficha</label>
-    <select id="ficha" class="form-control"></select>
+    <select id="ficha" class="form-control"(change)="onFichaChange()" [(ngModel)]="adr.ficha" name="ficha">
+    <option value=""></option>
+    <option *ngFor="let f of fichas" value="{{ f.id }}">{{ f.nombre }}</option>
+    </select>
   </div>
   <div class="form-group">
     <label for="tipo">Tipo del proyecto</label>
-    <select id="tipo" class="form-control"></select>
+    <select id="tipo" class="form-control">
+      <option value=""></option>
+      <option *ngFor="let t of tipos" value="{{ t.id }}">{{ t.nombre }}</option>
+    </select>
   </div>
 </form>
