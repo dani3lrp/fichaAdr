@@ -14,11 +14,13 @@ namespace fichaAdr.Models
         public string Nombre { get; set; }
 
         public ICollection<Tipo> Tipos { get; set; }
+        public ICollection<Grupo>  Grupos{ get; set; }
 
         public Ficha()
         {
 
             Tipos = new Collection<Tipo>();
+            Grupos = new Collection<Grupo>();
 
         }
     }
